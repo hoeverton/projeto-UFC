@@ -12,6 +12,7 @@ class Lutador:
         self.__derrotas = derrotas
         self.__empates = empates
 
+        self.__categoria = None
         
 
     def apresentar(self):

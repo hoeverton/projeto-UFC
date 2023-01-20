@@ -13,10 +13,13 @@ class Luta:
     
     def marcarLuta(self, l1, l2):
 
-        l1 = l1(self.Lutador.get_cateoria())
-        l2 = l2(self.Lutador.get_cateoria())
+        categoria_l1 = l1.get_categorias()
+        categoria_l2 = l2.get_categorias()
 
-        if l1 == l2:
+        assert categoria_l1 is not None, f"ERRO: Categoria não definida para {l1.get_nome()}"
+        assert categoria_l2 is not None, f"ERRO: Categoria não definida para {l2.get_nome()}"
+        
+        if categoria_l1 == categoria_l2:
             self.aprovado = True
             print('Luta APROVADA')
 
