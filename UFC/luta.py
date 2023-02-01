@@ -2,22 +2,23 @@ from lutador import Lutador
 
 class Luta:
 
-    def __init__(self, desafiado, desafiante, rounds) -> None:
+    def __init__(self, l1, l2):
         
-        self.__desafiado = desafiado
-        self.__desafiante = desafiante
-        self.__rounds = rounds
-        self.__aprovada = False
+        self.__desafiado = l1
+        self.__desafiante = l2
+        self.__aprovada = False 
+        
 
     
     
-    def marcarLuta(self, l1, l2):
+    def marcarLuta(self):
 
-        l1 = l1(self.Lutador.get_cateoria())
-        l2 = l2(self.Lutador.get_cateoria())
+        categorias_l1 = self.__desafiado.get_categorias()
+        categorias_l2 = self.__desafiante.get_categorias()
+    
 
-        if l1 == l2:
-            self.aprovado = True
+        if categorias_l1 != categorias_l2:
+            self.__aprovada = True
             print('Luta APROVADA')
 
         else:
@@ -27,12 +28,13 @@ class Luta:
         
 
     def luta(self):
-            
-        if self.aprovado == True:
+        
+        if self.__aprovada == True:
             self.luta = range(0,3)
+            
             if self.luta == 0:
-                self.l1 = Lutador.ganharLuta()
-                self.l2 = Lutador.perderLuta()
+                self.__desafiado.ganharLuta()
+                self.__desafiante.perderLuta()
 
                 print('********************************************')
                 print()

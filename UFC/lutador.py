@@ -11,8 +11,19 @@ class Lutador:
         self.__vitorias = vitorias
         self.__derrotas = derrotas
         self.__empates = empates
+        
+       # self.__categorias = None
+        # self.categoria = None
 
         
+
+    @property
+    def categoria(self):
+        return self.__categorias
+
+    @categoria.setter
+    def categoria(self, valor):
+        self.__categorias = f"daluta: {valor}"
 
     def apresentar(self):
 
@@ -76,24 +87,24 @@ class Lutador:
 
     def set_peso(self,peso):
 
-        self.__nome = peso
-        self.set_categoria() ## por hora sem parametro
+        self.__peso = peso
+        self.set_categorias() ## por hora sem parametro
 
     def get_categorias(self):
 
-        return self.__categoria
+        return self.__categorias
 
-    def set_categoria(self):
+    def set_categorias(self):
 
       if self.__peso < 52.2:
-        self.__categoria = 'Inválido'
+        self.__categorias = 'Inválido'
       elif self.__peso <= 70.3:
-        self.__categoria = 'Leve'    
+        self.__categorias = 'Leve'    
       elif self.__peso <= 83.9:
-        self.__categoria = 'Médio'
+        self.__categorias = 'Médio'
       elif self.__peso <= 120.2:
-        self.__categoria = 'Pesado'
-      else: self.__categoria = 'Inválido'    
+        self.__categorias = 'Pesado'
+      else: self.__categorias = 'Inválido'    
 
     def get_vitorias(self):
 
